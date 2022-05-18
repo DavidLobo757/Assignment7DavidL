@@ -9,6 +9,8 @@ class CustomArrayListTest {
 	
 	private CustomList<Integer> sut;
 	
+
+	
 	@Test
 	void should_add_22_items_to_list_and_pass () {
 		CustomList<Integer> customList = new CustomArrayList<>();
@@ -62,5 +64,26 @@ class CustomArrayListTest {
 		assertEquals(-20, customList.get(1));
 		
 	}
+	
+	// This is when it goes out of bounds but give the wrong exception
+	@Test
+	void should_get_item_and_remove() {
+		CustomList<Integer> customList = new CustomArrayList<>();
+		
+		try {
+		for (int i = 0; i < 10; i++) {
+			customList.add(i);
+		}
+		
+		customList.remove(100);
+		assertEquals(customList.get(11), 11);
+		
+	
+	} catch (ArrayIndexOutOfBoundsException e) {
+		return;
+	}
+		fail("Expecting IndexOutOfBoundsException");
+	}
+	
 	
 }
