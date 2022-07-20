@@ -26,9 +26,11 @@ class CustomArrayListTest {
 	void should_get_item_and_pass() {
 		CustomList<Integer> customList = new CustomArrayList<>();
 		
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 10; i++) {
 			customList.add(i);
 		}
+		
+		customList.add(100, 10000);
 		
 		assertEquals(customList.get(11), 11);
 		
@@ -66,24 +68,7 @@ class CustomArrayListTest {
 	}
 	
 	// This is when it goes out of bounds but give the wrong exception
-	@Test
-	void should_get_item_and_remove() {
-		CustomList<Integer> customList = new CustomArrayList<>();
-		
-		try {
-		for (int i = 0; i < 10; i++) {
-			customList.add(i);
-		}
-		
-		customList.remove(100);
-		assertEquals(customList.get(11), 11);
-		
 	
-	} catch (ArrayIndexOutOfBoundsException e) {
-		return;
-	}
-		fail("Expecting IndexOutOfBoundsException");
-	}
 	
 	
 }
