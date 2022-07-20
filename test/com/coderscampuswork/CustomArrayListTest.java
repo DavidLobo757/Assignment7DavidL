@@ -26,12 +26,9 @@ class CustomArrayListTest {
 	void should_get_item_and_pass() {
 		CustomList<Integer> customList = new CustomArrayList<>();
 		
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 100; i++) {
 			customList.add(i);
 		}
-		
-		
-		
 		assertEquals(customList.get(11), 11);
 		
 	}
