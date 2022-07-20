@@ -30,7 +30,7 @@ class CustomArrayListTest {
 			customList.add(i);
 		}
 		
-		customList.add(100, 10000);
+		
 		
 		assertEquals(customList.get(11), 11);
 		
