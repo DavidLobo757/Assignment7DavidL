@@ -55,10 +55,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index >= arrayLength) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}	
-		if (index == arrayLength) {
-			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-		}
+		
 		for (int i = 0; i<arrayLength; i++) {
+			System.out.println(items[i]);
+			System.out.println(items[i]);
 			System.out.println(items[i]);
 		}
 		T removedItem = (T)items[index];
