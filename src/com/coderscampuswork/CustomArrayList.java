@@ -6,12 +6,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	
 	@Override
 	public boolean add(T item) {
-		if (arrayLength == items.length) {
-			items = growBackingOfArray();
-		}
-		items[arrayLength] = item;
-		arrayLength++;
-		return true;
+		return add(arrayLength, item);
 	}
 
 	private Object[] growBackingOfArray() {
@@ -44,6 +39,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index > arrayLength) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}		
+		if(arrayLength == items.length) {
+			items = growBackingOfArray();
+		}
 		for (int i = arrayLength-1; i>index; i--) {
 			items[i+1] = items[i];
 		}
@@ -51,18 +49,29 @@ public class CustomArrayList<T> implements CustomList<T> {
 		arrayLength++;
 		return true;
 	}
-  
+	
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 		if (index >= arrayLength) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}	
+		if (index == arrayLength) {
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}
-		T removeItem = (T)items[index];
-		for (int i = index; i<arrayLength-1; i++) {
+		for (int i = 0; i<arrayLength; i++) {
+			System.out.println(items[i]);
+		}
+		T removedItem = (T)items[index];
+		for (int i = index; i<=arrayLength-1; i++) {
 			items[i] = items[i+1];
 		}
+		
+		
 		arrayLength--;
-		return removeItem;
+		return removedItem;
 	}
+	
+	
+	
 	
 }

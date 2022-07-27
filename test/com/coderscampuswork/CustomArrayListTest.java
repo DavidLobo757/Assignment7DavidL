@@ -15,9 +15,21 @@ class CustomArrayListTest {
 	void should_add_22_items_to_list_and_pass () {
 		CustomList<Integer> customList = new CustomArrayList<>();
 		
-		for (int i = 1; i<22; i++) {
+		for (int i = 0; i<11; i++) {
 			customList.add(i);
 		}
+					
+		customList.remove(9);
+		
+		customList.add(10);
+		customList.add(9, 100);
+		customList.add(9000);
+		customList.add(3, 10000);
+		customList.remove(3);
+		customList.remove(11);
+		customList.add(2000);
+		customList.add(13, 50000);
+		
 		
 		assertEquals(21, customList.getSize());
 	}
