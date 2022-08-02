@@ -27,7 +27,7 @@ class CustomArrayListTest {
      	customList.remove(3);
 		customList.remove(11);
 	    customList.add(2000);
-		
+		customList.add(13, 50000);
 		
 		assertEquals(customList.getSize(), 10);
 	}
