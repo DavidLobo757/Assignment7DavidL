@@ -10,8 +10,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 	}
 
 	private Object[] growBackingOfArray() {
-		Object[] newArray = new Object[arrayLength*2];
-		
+		Object[] newArray = new Object[arrayLength * 2];
 		for (int i=0; i<arrayLength; i++) {
 			newArray[i] = items[i];
 		}
@@ -23,14 +22,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return arrayLength;
 	}
 
-	
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException{
-		if (index >= arrayLength) {
+		if (index > arrayLength) 
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-		}
 		return (T) items[index];
 	}
 
@@ -55,18 +51,14 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index >= arrayLength) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}	
-		
-		for (int i = 0; i<arrayLength; i++) {
-			System.out.println(items[i]);
-			System.out.println(items[i]);
-			System.out.println(items[i]);
-		}
+		// pete said do a try and catch and then see what's going on with it
+		@SuppressWarnings("unchecked")
 		T removedItem = (T)items[index];
-		for (int i = index; i<=arrayLength-1; i++) {
+		// The problem was I had it as <= instead of <
+		for (int i = index; i < arrayLength-1; i++) {
+			
 			items[i] = items[i+1];
 		}
-		
-		
 		arrayLength--;
 		return removedItem;
 	}
