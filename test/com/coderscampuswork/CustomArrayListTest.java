@@ -20,6 +20,7 @@ class CustomArrayListTest {
 		}
 		
 		customList.remove(9);
+		System.out.println("--");
 		customList.add(10);
 		customList.add(9, 100);
 		customList.add(9000);

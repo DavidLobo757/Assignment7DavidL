@@ -38,9 +38,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if(arrayLength == items.length) {
 			items = growBackingOfArray();
 		}
-		for (int i = arrayLength-1; i>index; i--) {
+		for (int i = arrayLength-1; i>=index; i--) {
 			items[i+1] = items[i];
 		}
+		
 		items[index] = item;
 		arrayLength++;
 		return true;
@@ -51,16 +52,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 		if (index >= arrayLength) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}	
-		// pete said do a try and catch and then see what's going on with it
 		@SuppressWarnings("unchecked")
-		T removedItem = (T)items[index];
-		// The problem was I had it as <= instead of <
+		T removedItem = (T) items[index];
 		for (int i = index; i < arrayLength-1; i++) {
-			
-			items[i] = items[i+1];
+			items[i] = items[i + 1];
 		}
 		arrayLength--;
+		items[index] = null;
+		
 		return removedItem;
+		
+		
 	}
 	
 	
