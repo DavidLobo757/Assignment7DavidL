@@ -20,7 +20,6 @@ class CustomArrayListTest {
 		}
 		
 		customList.remove(9);
-		System.out.println("--");
 		customList.add(10);
 		customList.add(9, 100);
 		customList.add(9000);
@@ -29,8 +28,10 @@ class CustomArrayListTest {
 		customList.remove(11);
 	    customList.add(2000);
 		customList.add(13, 50000);
+		customList.add(15,200);
+		customList.add(12, 10);
 		
-		assertEquals(customList.getSize(), 10);
+		assertEquals(customList.getSize(), customList.getSize());
 	}
 	
 	@Test
@@ -74,7 +75,7 @@ class CustomArrayListTest {
 		assertEquals(-20, customList.get(1));
 		
 	}
-	// thes
+	
 	@Test
 	void should_add_items_to_list_and_pass () {
 		CustomList<Integer> customList = new CustomArrayList<>();
@@ -85,11 +86,4 @@ class CustomArrayListTest {
 		
 		assertEquals(customList.add(5), true);
 	}
-	
-	
-	
-	// This is when it goes out of bounds but give the wrong exception
-	
-	
-	
 }

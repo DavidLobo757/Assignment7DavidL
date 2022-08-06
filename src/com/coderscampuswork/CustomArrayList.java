@@ -14,6 +14,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		for (int i=0; i<arrayLength; i++) {
 			newArray[i] = items[i];
 		}
+		
 		return newArray;
 	}
 
@@ -25,23 +26,30 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public T get(int index) throws IndexOutOfBoundsException{
-		if (index > arrayLength) 
+		if (index > items.length) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+		}
 		return (T) items[index];
 	}
 
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
-		if (index > arrayLength) {
+		if (index > items.length) {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
 		}		
 		if(arrayLength == items.length) {
 			items = growBackingOfArray();
+			
 		}
-		for (int i = arrayLength-1; i>=index; i--) {
-			items[i+1] = items[i];
-		}
+//		for (int i = arrayLength-1; i>=index; i--) {
+//			items[i+1] = items[i];
+//			
+//		}
 		
+		if (items[index] != null) {
+			for (int i = arrayLength + 1; i >= index; i--) 
+			items[i + 1] = items[i];
+		}
 		items[index] = item;
 		arrayLength++;
 		return true;
