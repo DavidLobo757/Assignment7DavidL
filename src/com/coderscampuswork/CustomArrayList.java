@@ -65,6 +65,9 @@ public class CustomArrayList<T> implements CustomList<T> {
 		for (int i = index; i < arrayLength-1; i++) {
 			items[i] = items[i + 1];
 		}
+		for (int i = 0; i < items.length; i++) {
+			System.out.println(items[i]);
+		}
 		arrayLength--;
 		items[index] = null;
 		
